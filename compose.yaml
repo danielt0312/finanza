@@ -1,0 +1,16 @@
+services:
+  app:
+    build: .
+    ports:
+      - "80:5173"
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /app
+        - action: rebuild
+          path: Dockerfile
+          target: /app
+        - action: rebuild
+          path: compose
+        

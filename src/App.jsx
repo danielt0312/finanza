@@ -1,37 +1,36 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import Button from '@mui/material/Button';
 
-function App() {
-  const [count, setCount] = useState(0)
+import Typography from '@mui/material/Typography';
 
+import Card from '@mui/material/Card';
+import CardActionArea from '@mui/material/CardActionArea';
+import CardContent from '@mui/material/CardContent';
+
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+
+let top100Films = [
+  { label: 'Lol' },
+];
+
+export default () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <Button variant="contained">Hello world</Button>
-    </>
+    <Card maxWidth={false}>
+      <CardActionArea>
+        <CardContent>
+          <Typography variant="h5" component="div">
+            Solicitud de Bienes Materiales
+          </Typography>
+
+          <Autocomplete
+            disablePortal
+            options={top100Films}
+            sx={{ width: 300 }}
+            renderInput={(params) => <TextField {...params} label="Movie" />}
+          />
+        </CardContent>
+      </CardActionArea>
+    </Card>
   )
 }
-
-export default App
